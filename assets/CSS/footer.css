@@ -1,0 +1,37 @@
+.footer_div{
+    height:70vh;
+    background-color: #242323;
+    display: inline-flex;
+    width:100%;
+}
+.maps_div{
+    width:650px;
+    height:500px;
+}
+.maps_div iframe {
+    border: 10px solid transparent; /* Set the initial border size and make it transparent */
+    border-image: linear-gradient(to right, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080, #ff0000) 1;
+    border-image-slice: 1;
+    transition: border 0.5s ease;
+    margin:40px 0 0 20px;
+    border-radius: 0px 30px;
+}
+.contact_sec{
+    float: right;
+    color:white;
+    margin:5% 0% 0% 20%;
+}
+.fa{
+    font-size: 1.8em;
+}
+.contact_sec span{
+    margin-left:20px;
+    font-size: 1.3em;
+    text-align: center;
+}
+.fa:hover, .contact_sec span:hover{
+    color:rgb(146, 242, 151);
+}
+.foot_hr{
+    border:1px solid rgb(255, 111, 111);
+}
