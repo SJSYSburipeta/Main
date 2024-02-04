@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SJSYSS Gallery</title>
+    <!-- Bootstrap CSS link -->
+<link rel="icon" type="image/x-icon" href="assets/Images/trust.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/CSS/footer.css">
+    <style>
+        body{
+            background-color: #E1F0DA;
+        }
+        a.nav-link{
+            margin-left: 50px;
+            width:120px;
+            padding:5px;
+            text-align: center;
+            border-radius: 50px;
+        }
+        a.nav-link:hover{
+            background-color:#99BC85;
+            color:#000 !important;
+            font-weight: bolder;
+        }
+        .navbar{
+            background-color:#D4E7C5;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        }
+        a.nav-link{
+            color:#313030 !important;
+        }
+        .carousel-inner img {
+            width: 100%;
+            height: 90vh;
+            border-radius: 20px;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 5px;
+            margin-top: 20px;
+        }
+
+        .gallery-item img {
+            width: 80%;
+            height: 70%;
+            object-fit: cover;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+        #imageCarousel{
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+            border-radius: 20px;
+            width:95%;
+            margin: 1% auto;
+        }
+    </style>
+</head>
+<body>
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark">
+    <img src="assets/Images/trust.ico">
+    <div class="container">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="achievements.html">Achievements</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#option2">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="committee.html">Committee</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="students.html">Students</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#option4">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script>
+    // Specify the folder path containing your images
+    const folderPath = 'D:/Siva Project/assets/Gallery_Images';
+
+    // Array of image filenames
+    const imageFilenames = [
+    'image (1).jpg',
+    'image (2).jpg',
+    'image (3).jpg',
+    'image (4).jpg',
+    'image (5).jpg',
+    'image (6).jpg',
+    'image (7).jpg',
+    'image (8).jpg',
+    'image (9).jpg',
+    'image (10).jpg',
+    'image (11).jpg',
+    'image (12).jpg',
+    'image (13).jpg',
+    'image (14).jpg',
+    'image (15).jpg',
+    'image (16).jpg',
+    'image (17).jpg',
+    'image (18).jpg',
+    'image (19).jpg',
+    'image (20).jpg',
+    'image (21).jpg',
+    'image (22).jpg',
+    'image (23).jpg',
+    'image (24).jpg',
+    'image (25).jpg'
+    ];
+
+    // Function to load images from the array and display in the gallery
+    function loadImages() {
+        const galleryContainer = document.getElementById('imageGallery');
+        const carouselInner = document.querySelector('#imageCarousel .carousel-inner');
+
+        imageFilenames.forEach((imageName, index) => {
+            // Create a grid item for each image
+            const galleryItem = document.createElement('div');
+            galleryItem.classList.add('gallery-item');
+
+            // Create an image element
+            const img = document.createElement('img');
+            img.src = `${folderPath}/${imageName}`;
+            img.alt = `Image ${index + 1}`;
+
+            // Append the image to the grid item
+            galleryItem.appendChild(img);
+
+            // Append the grid item to the gallery container
+            galleryContainer.appendChild(galleryItem);
+
+            // Create a carousel item for each image
+            const carouselItem = document.createElement('div');
+            carouselItem.classList.add('carousel-item');
+
+            // Create an image element for the carousel
+            const carouselImg = document.createElement('img');
+            carouselImg.src = `${folderPath}/${imageName}`;
+            carouselImg.alt = `Image ${index + 1}`;
+
+            // Append the image to the carousel item
+            carouselItem.appendChild(carouselImg);
+
+            // Add the 'active' class to the first carousel item
+            if (index === 0) {
+                carouselItem.classList.add('active');
+            }
+
+            // Append the carousel item to the carousel inner container
+            carouselInner.appendChild(carouselItem);
+        });
+
+        // Initialize the carousel
+        $('#imageCarousel').carousel();
+    }
+
+    // Call the loadImages function when the page is loaded
+    window.onload = loadImages;
+</script>
+
+    <!-- Bootstrap Carousel for Slideshow -->
+    <div id="imageCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Images will be dynamically added here using JavaScript -->
+        </div>
+        <a class="carousel-control-prev" href="#imageCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#imageCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Image Gallery Grid -->
+    <div class="gallery-container" id="imageGallery">
+        <!-- Images will be dynamically added here using JavaScript -->
+    </div>
+
+    <!-- Bootstrap JS and Popper.js scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+<footer>
+    <div class="footer_div">
+        <div class="maps_div">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.0702701158175!2d80.55770747545346!3d16.42125718431047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f1c5feb064d5%3A0x9e93f8e2f38aecf9!2sEFFTRONICS%20SYSTEMS%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin!4v1706553150111!5m2!1sen!2sin" 
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="contact_sec">
+            <i class="fa fa-instagram"></i><span>Instagram</span><hr class="foot_hr">
+            <i class="fa fa-facebook"></i><span>Facebook</span><hr class="foot_hr">
+            <i class="fa fa-whatsapp"></i><span>Whatsapp</span><hr class="foot_hr">
+            <i class="fa fa-envelope"></i><span>Mail</span><hr class="foot_hr">
+            <i class="fa fa-phone"></i><span>+918919652766</span>
+        </div>
+    </div>    
+</footer>
+</html>
