@@ -58,6 +58,46 @@
             width:95%;
             margin: 1% auto;
         }
+        @media (max-width: 768px) {
+        .navbar-nav {
+            display: none;
+        }
+        .mobile-menu-button {
+            display: block;
+        }
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+        }
+        .change .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .change .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .change .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        .options-container{
+            background-size: 100%;
+            height: 100vh;
+        }
+        .options-container .title{
+            font-size:1.5em;
+            font-weight: bolder;
+            z-index: 5;
+        }
+        .options-container .title_moto{
+            font-size: 1em;
+            opacity: 0.8;
+            margin-left: 10%;
+        }
+        }
     </style>
 </head>
 <body>
@@ -85,6 +125,11 @@
                 <a class="nav-link" href="#option4">About</a>
             </li>
         </ul>
+    </div>
+    <div id="mobileMenuButton" class="mobile-menu-button">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 </nav>
 <script>
@@ -168,6 +213,11 @@
 
     // Call the loadImages function when the page is loaded
     window.onload = loadImages;
+    document.getElementById("mobileMenuButton").addEventListener("click", function() {
+    var navbar = document.querySelector(".navbar-nav");
+    this.classList.toggle("change");
+    navbar.style.display === "block" ? navbar.style.display = "none" : navbar.style.display = "block";
+});
 </script>
 
     <!-- Bootstrap Carousel for Slideshow -->

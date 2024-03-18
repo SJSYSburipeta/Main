@@ -35,3 +35,27 @@
 .foot_hr{
     border:1px solid rgb(255, 111, 111);
 }
+/* Media query for mobile layout */
+@media (max-width: 768px) {
+    .contact_sec {
+        margin: 10px auto; /* Reduce margin for smaller screens */
+    }
+    
+    .maps_div iframe {
+        margin: 15px auto; /* Reduce margin for smaller screens */
+    }
+    .fa{
+        font-size: 1em;
+    }
+    .contact_sec span{
+        margin-left:10px;
+        font-size: 0.8em;
+        text-align: center;
+    }
+    .footer_div{
+        height:60vh;
+        background-color: #242323;
+        display: inline-flex;
+        width:100%;
+    }
+}
