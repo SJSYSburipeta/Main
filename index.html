@@ -78,10 +78,53 @@
             margin-bottom:20px;
             box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
         }
+        iframe{
+        width:500px;
+        height:350px;
+        }
+        @media (max-width: 768px) {
+        .navbar-nav {
+            display: none;
+        }
+        .mobile-menu-button {
+            display: block;
+        }
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+        }
+        .change .bar:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .change .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .change .bar:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        .options-container{
+            background-size: 100%;
+            height: 100vh;
+        }
+        .options-container .title{
+            font-size:1.5em;
+            font-weight: bolder;
+            z-index: 5;
+        }
+        .options-container .title_moto{
+            font-size: 1em;
+            opacity: 0.8;
+            margin-left: 10%;
+        }
+        }
     </style>
 </head>
 <body>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <img src="assets/Images/trust.ico">
@@ -106,6 +149,11 @@
                     <a class="nav-link" href="#option4">About</a>
                 </li>
             </ul>
+        </div>
+        <div id="mobileMenuButton" class="mobile-menu-button">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
     </nav>
 
@@ -183,15 +231,19 @@
         }
       });
     });
+
+    document.getElementById("mobileMenuButton").addEventListener("click", function() {
+    var navbar = document.querySelector(".navbar-nav");
+    this.classList.toggle("change");
+    navbar.style.display === "block" ? navbar.style.display = "none" : navbar.style.display = "block";
+});
 </script>
 </body>
 <footer>
     <div class="footer_div">
         <div class="maps_div">
-           <!----<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.0702701158175!2d80.55770747545346!3d16.42125718431047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f1c5feb064d5%3A0x9e93f8e2f38aecf9!2sEFFTRONICS%20SYSTEMS%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin!4v1706553150111!5m2!1sen!2sin" 
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11488.586777121065!2d83.54925843524029!3d18.517209989874644!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3b862d44028665%3A0x42d2746b56c811e9!2sViziarampuram%20at%20Buripeta%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1710258016591!5m2!1sen!2sin"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div class="contact_sec">
             <i class="fa fa-instagram"></i><span>Instagram</span><hr class="foot_hr">
@@ -203,4 +255,3 @@
     </div>    
 </footer>
 </html>
-<!-- https://villageinfo.in/andhra-pradesh/vizianagaram/therlam/viziarampuram-buripeta.html-->
